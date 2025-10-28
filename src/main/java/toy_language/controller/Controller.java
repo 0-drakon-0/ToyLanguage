@@ -8,5 +8,7 @@ public interface Controller {
     public PrgState oneStep(PrgState state) throws ToyLanguageExceptions;
     public void allStep() throws ToyLanguageExceptions;
     public void displayCurentState(PrgState state);
+    public boolean getPrintFlag();
+    public void flipPrintFlag();
 }
 

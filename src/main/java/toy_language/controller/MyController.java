@@ -50,4 +50,15 @@ public class MyController implements Controller {
     public void displayCurentState(PrgState state) {
         System.out.println(state.toString());
     }
+    @Override
+    public boolean getPrintFlag() {
+        return this.printFlag;
+    }
+    @Override 
+    public void flipPrintFlag() {
+        if (printFlag)
+            printFlag = false;
+        else
+            printFlag = true;
+    }
 }

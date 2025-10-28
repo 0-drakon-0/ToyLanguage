@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+
+
 public class TUI {
     private final Map<String, Command> commands;
     private final Scanner keyboard = new Scanner(System.in);
@@ -14,8 +16,9 @@ public class TUI {
         this.commands = new HashMap<>();
         addCommand(new SelectPrgCommand("1", "Select a program", controller));
         addCommand(new RunAllCommand("2", "Run the entire program", controller));
-        //addCommand(new SetPrintFlag("3", "Activate the print flag");
+        addCommand(new FlipPrintFlag("3", "Activate the print flag", controller));
         //addCommand(new ShowCurrentState("4", "Show current state");
+        //addCommand(new ShowOriginalState("5", "Show current state");
         addCommand(new ExitCommand("0", "Exit"));
     }
 
@@ -29,6 +32,8 @@ public class TUI {
             String line = String.format("%3s. %s", command.getKey(), command.getDescription());
             System.out.println(line);
         }
+        System.out.println("------------------------------");
+        System.out.printf(" print flag: %b%n", ((FlipPrintFlag)this.commands.get("3")).getPrintFlag());
         System.out.println("------------------------------");
     }
 

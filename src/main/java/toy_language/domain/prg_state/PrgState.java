@@ -10,11 +10,13 @@ public class PrgState {
     private final MyStack<Stmt> exeStk;
     private final MyDict<String, Value> symTable;
     private final MyList<Value> outList;
+    //private final PrgState originalProgram;
 
     public PrgState(MyStack<Stmt> stk, MyDict<String, Value> dict, MyList<Value> list) {
         this.exeStk = stk;
         this.symTable = dict;
         this.outList = list;
+        //this.originalProgram=deepCopy(prg);//recreate the entire original prg
     }
     
     public MyDict<String, Value> getSymTable() {
@@ -36,4 +38,8 @@ public class PrgState {
         allStr.append(this.outList.toString());
         return allStr.toString();
     }
+    //public PrgState getOriginal() {
+    //    return this.originalProgram;
+    //}
+
 }
