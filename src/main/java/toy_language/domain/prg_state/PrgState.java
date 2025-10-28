@@ -2,16 +2,19 @@ package toy_language.domain.prg_state;
 
 import toy_language.domain.adts.dictionary.*;
 import toy_language.domain.adts.stack.*;
+import toy_language.domain.adts.list.*;
 import toy_language.domain.values.Value;
 import toy_language.domain.statements.Stmt;
 
 public class PrgState {
-    private final MyDict<String, Value> symTable;
     private final MyStack<Stmt> exeStk;
+    private final MyDict<String, Value> symTable;
+    private final MyList<Value> outList;
 
-    public PrgState(MyStack<Stmt> stk, MyDict<String, Value> dict) {
-        this.symTable = dict;
+    public PrgState(MyStack<Stmt> stk, MyDict<String, Value> dict, MyList<Value> list) {
         this.exeStk = stk;
+        this.symTable = dict;
+        this.outList = list;
     }
     
     public MyDict<String, Value> getSymTable() {
@@ -20,5 +23,17 @@ public class PrgState {
     public MyStack<Stmt> getExeStk() {
         return this.exeStk;
     }
-
+    public MyList<Value> getOutList() {
+        return this.outList;
+    }
+    @Override
+    public String toString() {
+        StringBuilder allStr = new StringBuilder();
+        allStr.append(this.exeStk.toString());
+        allStr.append("\n");
+        allStr.append(this.symTable.toString());
+        allStr.append("\n");
+        allStr.append(this.outList.toString());
+        return allStr.toString();
+    }
 }

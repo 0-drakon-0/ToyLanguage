@@ -3,6 +3,8 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/controller/MyController.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/dictionary/MyDict.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/dictionary/SymbolTable.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/list/MyList.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/list/OutList.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/stack/ExeStk.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/stack/MyStack.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/expressions/ArithExp.java
@@ -13,12 +15,15 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/expressions/operators/ArithOp.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/expressions/operators/LogicOp.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/DivisionByZeroException.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/EmptyListException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/EmptyStackException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdAlreadyExistsException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdNotDefinedException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdNotFoundException.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IndexOutOfBoundsException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/InvalidInstructionException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/MissmatchValueException.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/NoProgramToRunException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/ToyLanguageExceptions.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/UnknownOperatorException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/prg_state/PrgState.java

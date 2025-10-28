@@ -8,6 +8,8 @@ import toy_language.domain.types.*;
 import toy_language.domain.values.*;
 import toy_language.domain.adts.dictionary.MyDict;
 import toy_language.domain.adts.dictionary.SymbolTable;
+import toy_language.domain.adts.list.MyList;
+import toy_language.domain.adts.list.OutList;
 import toy_language.domain.adts.stack.ExeStk;
 import toy_language.domain.adts.stack.MyStack;
 import toy_language.domain.expressions.*;
@@ -65,7 +67,8 @@ public class SelectPrgCommand extends Command {
         MyStack<Stmt> exeStk = new ExeStk<>();
         exeStk.push(ex1);
         MyDict<String, Value> symTable = new SymbolTable<>();
-        PrgState state = new PrgState(exeStk, symTable);
+        MyList<Value> outList = new OutList<>();
+        PrgState state = new PrgState(exeStk, symTable, outList);
         this.controller.addPrgState(state);
     }
     private void loadOption2() {

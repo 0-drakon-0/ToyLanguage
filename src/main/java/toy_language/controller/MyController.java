@@ -2,6 +2,7 @@ package toy_language.controller;
 
 import toy_language.domain.my_exceptions.ToyLanguageExceptions;
 import toy_language.domain.my_exceptions.EmptyStackException;
+import toy_language.domain.my_exceptions.NoProgramToRunException;
 import toy_language.domain.prg_state.PrgState;
 import toy_language.repository.*;
 import toy_language.domain.statements.Stmt;
@@ -32,9 +33,12 @@ public class MyController implements Controller {
     @Override
     public void allStep() throws ToyLanguageExceptions {
         PrgState prg = repo.getCrtPrg();
+        if (prg == null)
+            throw new NoProgramToRunException();
         while (!prg.getExeStk().isEmpty()){
             if (this.printFlag) {
                 this.displayCurentState(prg);
+                System.out.println("\n==>");
             }
             oneStep(prg);
         }
@@ -44,9 +48,6 @@ public class MyController implements Controller {
     }
     @Override
     public void displayCurentState(PrgState state) {
-        System.out.println("");
-        System.out.println(state.getExeStk().toString());
-        System.out.println(state.getSymTable().toString());
-        System.out.println("");
+        System.out.println(state.toString());
     }
 }
