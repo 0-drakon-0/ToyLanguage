@@ -13,6 +13,7 @@ import toy_language.domain.adts.list.OutList;
 import toy_language.domain.adts.stack.ExeStk;
 import toy_language.domain.adts.stack.MyStack;
 import toy_language.domain.expressions.*;
+import toy_language.domain.my_exceptions.UnknownOperatorException;
 import toy_language.domain.prg_state.PrgState;
 
 public class SelectPrgCommand extends Command {
@@ -72,8 +73,26 @@ public class SelectPrgCommand extends Command {
         this.controller.addPrgState(state);
     }
     private void loadOption2() {
+        try {
+            Stmt ex2 = new CompStmt( new VarDeclStmt("a",new IntType()),new CompStmt(new VarDeclStmt("b",new IntType()),new CompStmt(new AssignStmt("a", new ArithExp('+',new ValueExp(new IntValue(2)),new ArithExp('*',new ValueExp(new IntValue(3)), new ValueExp(new IntValue(5))))), new CompStmt(new AssignStmt("b",new ArithExp('+',new VarExp("a"), new ValueExp(new IntValue(1)))), new PrintStmt(new VarExp("b"))))));
+            MyStack<Stmt> exeStk = new ExeStk<>();
+            exeStk.push(ex2);
+            MyDict<String, Value> symTable = new SymbolTable<>();
+            MyList<Value> outList = new OutList<>();
+            PrgState state = new PrgState(exeStk, symTable, outList);
+            this.controller.addPrgState(state);
+        } catch (UnknownOperatorException e) {
+            //TODO
+        }
     }
     private void loadOption3() {
+        Stmt ex3 = new CompStmt(new VarDeclStmt("a",new BoolType()), new CompStmt(new VarDeclStmt("v", new IntType()), new CompStmt(new AssignStmt("a", new ValueExp(new BoolValue(true))), new CompStmt(new IfStmt(new VarExp("a"),new AssignStmt("v",new ValueExp(new IntValue(2))), new AssignStmt("v", new ValueExp(new IntValue(3)))), new PrintStmt(new VarExp("v"))))));
+        MyStack<Stmt> exeStk = new ExeStk<>();
+        exeStk.push(ex3);
+        MyDict<String, Value> symTable = new SymbolTable<>();
+        MyList<Value> outList = new OutList<>();
+        PrgState state = new PrgState(exeStk, symTable, outList);
+        this.controller.addPrgState(state);
     }
 
         

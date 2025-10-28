@@ -18,6 +18,10 @@ public class LogicExp implements Exp{
         this.op = op;
     }
     @Override
+    public String toString() {
+        return this.e1.toString() + " " + this.op.toString() + " " + this.e2.toString();
+    }
+    @Override
     public Value eval(MyDict<String,Value> tbl) throws IdNotFoundException, IdAlreadyExistsException, MissmatchValueException, UnknownOperatorException, DivisionByZeroException{
         Value v1,v2;
         v1= e1.eval(tbl);

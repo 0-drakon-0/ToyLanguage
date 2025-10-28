@@ -12,10 +12,29 @@ public class ArithExp implements Exp{
     Exp e2;
     ArithOp op;
     
-    public ArithExp(Exp e1, Exp e2, ArithOp op) {
+    public ArithExp(char s_op, Exp e1, Exp e2) throws UnknownOperatorException {
         this.e1 = e1;
         this.e2 = e2;
-        this.op = op;
+        switch (s_op) {
+            case '+':
+                this.op = ArithOp.ADD;
+                break;
+            case '-':
+                this.op = ArithOp.SUBTRACT;
+                break;
+            case '*':
+                this.op = ArithOp.MULTIPLY;
+                break;
+            case '/':
+                this.op = ArithOp.DIVIDE;
+                break;
+            default:
+                throw new UnknownOperatorException(String.valueOf(s_op));
+        }
+    }
+    @Override
+    public String toString() {
+        return this.e1.toString() + " " + this.op.toString() + " " + this.e2.toString();
     }
     @Override
     public Value eval(MyDict<String,Value> tbl) throws IdNotFoundException, IdAlreadyExistsException, MissmatchValueException, UnknownOperatorException, DivisionByZeroException{
