@@ -1,0 +1,30 @@
+package toy_language.domain.statements;
+
+import toy_language.domain.prg_state.PrgState;
+import toy_language.domain.types.Type;
+
+import toy_language.domain.adts.dictionary.MyDict;
+import toy_language.domain.values.NullValue;
+import toy_language.domain.values.Value;
+import toy_language.domain.my_exceptions.*;
+
+public class VarDeclStmt implements Stmt{
+    private String name;
+    private Type typ;
+
+    public VarDeclStmt (String name, Type typ) {
+        this.name = name;
+        this.typ = typ;
+    }
+    @Override
+    public String toString() {
+        return this.typ.toString() + " " + name;
+    }
+    @Override
+    public PrgState execute(PrgState state) throws IdAlreadyExistsException{
+        MyDict<String, Value> symTbl = state.getSymTable();
+        symTbl.add(this.name, new NullValue());
+        return state;
+    }
+
+}
