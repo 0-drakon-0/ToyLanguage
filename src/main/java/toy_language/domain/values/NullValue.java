@@ -24,4 +24,8 @@ public class NullValue implements Value {
     public String getValue() {
         return val;
     }
+    @Override
+    public Value deepCopy() {
+        return new NullValue();
+    }
 }

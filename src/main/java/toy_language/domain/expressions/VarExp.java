@@ -19,4 +19,7 @@ public class VarExp implements Exp{
     public String toString() {
         return id;
     }
+    public Exp deepCopy() {
+        return new VarExp(this.id);
+    }
 }

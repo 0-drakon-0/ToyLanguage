@@ -26,5 +26,9 @@ public class VarDeclStmt implements Stmt{
         symTbl.add(this.name, new NullValue());
         return state;
     }
-
+    @Override
+    public Stmt deepCopy() {
+        // name is a string => immutable
+        return new VarDeclStmt(this.name, this.typ.deepCopy());
+    }
 }

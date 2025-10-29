@@ -25,4 +25,7 @@ public class CompStmt implements Stmt{
         stk.push(first);
         return state;
     }
+    public Stmt deepCopy() {
+        return new CompStmt(this.first.deepCopy(), this.snd.deepCopy());
+    }
 }

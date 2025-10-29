@@ -10,4 +10,5 @@ public interface MyList<E> {
     public E remove(int index) throws IndexOutOfBoundsException, EmptyListException;
     public int size();
     public boolean isEmpty();
+    public MyList<E> deepCopy();
 }

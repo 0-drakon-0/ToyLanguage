@@ -4,8 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 import toy_language.domain.my_exceptions.EmptyStackException;
+import toy_language.domain.statements.Stmt;
 
-public class ExeStk<E> implements MyStack<E> {
+public class ExeStk<E extends Stmt> implements MyStack<E> {
     private final Deque<E> exeStk;
 
     public ExeStk() {
@@ -46,5 +47,13 @@ public class ExeStk<E> implements MyStack<E> {
         strExeStack.append(" }");
         
         return strExeStack.toString();
+    }
+    @Override
+    public MyStack<E> deepCopy() {
+        MyStack<E> copyStk = new ExeStk<>();
+        for (E element : this.exeStk) {
+            copyStk.push((E)(element.deepCopy()));
+        }
+        return copyStk;
     }
 }

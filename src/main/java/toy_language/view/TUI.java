@@ -11,15 +11,17 @@ import java.util.Scanner;
 public class TUI {
     private final Map<String, Command> commands;
     private final Scanner keyboard = new Scanner(System.in);
+    private final String flipId = "6";
 
     public TUI(Controller controller) {
         this.commands = new HashMap<>();
+        addCommand(new ExitCommand("0", "Exit"));
         addCommand(new SelectPrgCommand("1", "Select a program", controller));
         addCommand(new RunAllCommand("2", "Run the entire program", controller));
-        addCommand(new FlipPrintFlag("3", "Activate the print flag", controller));
-        //addCommand(new ShowCurrentState("4", "Show current state");
-        //addCommand(new ShowOriginalState("5", "Show current state");
-        addCommand(new ExitCommand("0", "Exit"));
+        addCommand(new RunOneStepCommand("3", "Run One Step", controller));
+        addCommand(new ShowCurrentStateCommand("4", "Show current state", controller));
+        addCommand(new ShowOriginalStateCommand("5", "Show Original state", controller));
+        addCommand(new FlipPrintFlagCommand(flipId, "Flip the print flag", controller));
     }
 
     private void addCommand(Command command) {
@@ -33,7 +35,7 @@ public class TUI {
             System.out.println(line);
         }
         System.out.println("------------------------------");
-        System.out.printf(" print flag: %b%n", ((FlipPrintFlag)this.commands.get("3")).getPrintFlag());
+        System.out.printf(" print flag: %b%n", ((FlipPrintFlagCommand)this.commands.get(this.flipId)).getPrintFlag());
         System.out.println("------------------------------");
     }
 

@@ -4,10 +4,10 @@ import toy_language.controller.Controller;
 
 import toy_language.domain.my_exceptions.ToyLanguageExceptions;
 
-public class RunAllCommand extends Command {
+public class RunOneStepCommand extends Command {
     private final Controller controller;
         
-    public RunAllCommand (String key, String description, Controller controller) {
+    public RunOneStepCommand (String key, String description, Controller controller) {
         super(key, description);
         this.controller = controller;
     }
@@ -15,7 +15,7 @@ public class RunAllCommand extends Command {
     @Override
     public void execute() {
         try {
-            this.controller.allStep();
+            this.controller.oneStep(this.controller.getCurrentState());
         } catch (ToyLanguageExceptions e) {
             System.out.println(e);
         }

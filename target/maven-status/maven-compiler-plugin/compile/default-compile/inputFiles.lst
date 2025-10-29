@@ -47,6 +47,9 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/TUI.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/Command.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/ExitCommand.java
-/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/FlipPrintFlag.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/FlipPrintFlagCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/RunAllCommand.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/RunOneStepCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/SelectPrgCommand.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/ShowCurrentStateCommand.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/ShowOriginalStateCommand.java

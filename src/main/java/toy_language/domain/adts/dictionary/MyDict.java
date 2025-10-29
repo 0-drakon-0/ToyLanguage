@@ -9,4 +9,5 @@ public interface MyDict<K, V> {
     public void update(K id, V val) throws IdNotFoundException;
     public void add(K id, V val) throws IdAlreadyExistsException;
     public boolean isDefined(K id);
+    public MyDict<K,V> deepCopy();
 }

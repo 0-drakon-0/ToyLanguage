@@ -2,14 +2,13 @@ package toy_language.domain.adts.list;
 
 import toy_language.domain.my_exceptions.EmptyListException;
 import toy_language.domain.my_exceptions.IndexOutOfBoundsException;
+import toy_language.domain.values.Value;
 
-import java.time.temporal.ValueRange;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class OutList<E> implements MyList<E> {
+public class OutList<E extends Value> implements MyList<E> {
 
     private List<E> outList;
 
@@ -52,4 +51,13 @@ public class OutList<E> implements MyList<E> {
                                       .collect(Collectors.joining(", "));
         return "{ " + contents + " }";
     }
+    @Override
+    public MyList<E> deepCopy() {
+        MyList<E> copyList = new OutList<>();
+        for (E elem : this.outList) {
+            copyList.append((E)elem.deepCopy());
+        }
+        return copyList;
+    }
+
 }

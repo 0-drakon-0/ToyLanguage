@@ -37,18 +37,22 @@ public class MyController implements Controller {
             throw new NoProgramToRunException();
         while (!prg.getExeStk().isEmpty()){
             if (this.printFlag) {
-                this.displayCurentState(prg);
+                this.displayCurrentState(prg);
                 System.out.println("\n==>");
             }
             oneStep(prg);
         }
         if (this.printFlag) {
-                this.displayCurentState(prg);
+                this.displayCurrentState(prg);
             }
     }
-    @Override
-    public void displayCurentState(PrgState state) {
+    //TODO -- delete? on pdf it's good?
+    private void displayCurrentState(PrgState state) {
         System.out.println(state.toString());
+    }
+    @Override
+    public PrgState getCurrentState() {
+        return this.repo.getCrtPrg();
     }
     @Override
     public boolean getPrintFlag() {
@@ -61,4 +65,9 @@ public class MyController implements Controller {
         else
             printFlag = true;
     }
+    @Override
+    public Stmt getOriginalState() {
+        return this.repo.getOriginalState();
+    }
+
 }

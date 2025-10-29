@@ -2,10 +2,10 @@ package toy_language.view.commands;
 
 import toy_language.controller.Controller; 
 
-public class FlipPrintFlag extends Command {
+public class FlipPrintFlagCommand extends Command {
     private final Controller controller;
         
-    public FlipPrintFlag (String key, String description, Controller controller) {
+    public FlipPrintFlagCommand (String key, String description, Controller controller) {
         super(key, description);
         this.controller = controller;
     }

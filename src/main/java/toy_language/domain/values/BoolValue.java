@@ -21,5 +21,9 @@ public class BoolValue implements Value {
     public boolean getValue() {
         return val;
     }
+    @Override
+    public BoolValue deepCopy(){
+        return new BoolValue(this.val);
+    }
 
 }

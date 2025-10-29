@@ -24,5 +24,8 @@ public class PrintStmt implements Stmt{
         outList.append(exp.eval(symTable));
         return state;
     }
+    public Stmt deepCopy() {
+        return new PrintStmt(this.exp.deepCopy());
+    }
 }
 

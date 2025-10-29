@@ -67,4 +67,16 @@ public class ArithExp implements Exp{
             throw new MissmatchValueException(new IntType(), v1.getType());
         }
     }
+    @Override
+    public Exp deepCopy(){
+        String c_ = this.op.toString();
+        try {
+            return new ArithExp(c_.charAt(0), this.e1.deepCopy(), this.e2);
+        } catch (UnknownOperatorException e) {
+            //should never happen
+            throw new AssertionError("An impossible error occurred during deep copy: " + e.getMessage(), e);
+        }
+    }
+
+
 }

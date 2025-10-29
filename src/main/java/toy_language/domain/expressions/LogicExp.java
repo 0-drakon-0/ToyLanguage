@@ -47,4 +47,8 @@ public class LogicExp implements Exp{
             throw new MissmatchValueException(new BoolType(), v1.getType());
         }
     }
+    public Exp deepCopy() {
+        //this.op is an enum => imutable
+        return new LogicExp(this.e1.deepCopy(), this.e2.deepCopy(), this.op);
+    }
 }

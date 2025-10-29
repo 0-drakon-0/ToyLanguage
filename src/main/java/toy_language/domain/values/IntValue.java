@@ -10,9 +10,6 @@ public class IntValue implements Value {
     public IntValue(int i) {
         this.val = i;
     }
-    public IntValue() {
-    }
-
     @Override
     public String toString() {
         return String.valueOf(this.val);
@@ -23,5 +20,9 @@ public class IntValue implements Value {
     }
     public int getValue() {
         return val;
+    }
+    @Override
+    public Value deepCopy() {
+        return new IntValue(this.val);
     }
 }

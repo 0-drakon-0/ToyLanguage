@@ -13,4 +13,8 @@ public class NullType implements Type {
     public String toString() {
         return "Null";
     }
+    @Override
+    public Type deepCopy() {
+        return new NullType();
+    }
 }

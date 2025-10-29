@@ -11,6 +11,7 @@ import toy_language.domain.types.NullType;
 public class AssignStmt implements Stmt{
     private String id;
     private Exp exp;
+    //TODO see dault value instead of null
 
     public AssignStmt(String id, Exp exp) {
         this.id = id;
@@ -35,5 +36,8 @@ public class AssignStmt implements Stmt{
             throw new IdNotDefinedException(this.id);
         }
         return state;
+    }
+    public Stmt deepCopy() {
+        return new AssignStmt(this.id, this.exp.deepCopy());
     }
 }

@@ -13,4 +13,9 @@ public class BoolType implements Type {
     public String toString() {
         return "bool";
     }
+    @Override
+    public Type deepCopy() {
+        return new BoolType();
+    }
+
 }

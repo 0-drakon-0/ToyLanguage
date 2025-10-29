@@ -69,7 +69,7 @@ public class SelectPrgCommand extends Command {
         exeStk.push(ex1);
         MyDict<String, Value> symTable = new SymbolTable<>();
         MyList<Value> outList = new OutList<>();
-        PrgState state = new PrgState(exeStk, symTable, outList);
+        PrgState state = new PrgState(exeStk, symTable, outList, ex1);
         this.controller.addPrgState(state);
     }
     private void loadOption2() {
@@ -79,10 +79,11 @@ public class SelectPrgCommand extends Command {
             exeStk.push(ex2);
             MyDict<String, Value> symTable = new SymbolTable<>();
             MyList<Value> outList = new OutList<>();
-            PrgState state = new PrgState(exeStk, symTable, outList);
+            PrgState state = new PrgState(exeStk, symTable, outList, ex2);
             this.controller.addPrgState(state);
         } catch (UnknownOperatorException e) {
-            //TODO
+            //TODO -- should show a message to the user
+            System.out.println(e.getMessage());
         }
     }
     private void loadOption3() {
@@ -91,7 +92,7 @@ public class SelectPrgCommand extends Command {
         exeStk.push(ex3);
         MyDict<String, Value> symTable = new SymbolTable<>();
         MyList<Value> outList = new OutList<>();
-        PrgState state = new PrgState(exeStk, symTable, outList);
+        PrgState state = new PrgState(exeStk, symTable, outList, ex3);
         this.controller.addPrgState(state);
     }
 

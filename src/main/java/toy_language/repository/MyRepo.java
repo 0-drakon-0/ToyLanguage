@@ -1,9 +1,10 @@
 package toy_language.repository;
 
 import toy_language.domain.prg_state.PrgState;
+import toy_language.domain.statements.Stmt;
 
 public class MyRepo implements Repository {
-    //TODO -- ADAPT
+    //TODO -- ADAPT for threading
     private PrgState state;
 
     public MyRepo() {
@@ -17,5 +18,9 @@ public class MyRepo implements Repository {
     @Override
     public PrgState getCrtPrg() {
         return this.state;
+    }
+    @Override
+    public Stmt getOriginalState() {
+        return this.state.getOriginal();
     }
 }

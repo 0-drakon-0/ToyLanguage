@@ -8,4 +8,5 @@ public interface MyStack<E> {
     public E pop() throws EmptyStackException;
     public E top() throws EmptyStackException;
     public boolean isEmpty();
+    public MyStack<E> deepCopy();
 }

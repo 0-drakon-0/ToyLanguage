@@ -6,7 +6,9 @@ import java.util.Map;
 import toy_language.domain.my_exceptions.IdAlreadyExistsException;
 import toy_language.domain.my_exceptions.IdNotFoundException;
 
-public class SymbolTable<K,V> implements MyDict<K,V> {
+import toy_language.domain.values.Value;
+
+public class SymbolTable<K,V extends Value> implements MyDict<K,V> {
     private Map<K,V> myDict;
 
     public SymbolTable() {
@@ -55,4 +57,20 @@ public class SymbolTable<K,V> implements MyDict<K,V> {
         printSymTbl.append(" }");
         return printSymTbl.toString();
     }
+    @Override
+    public MyDict<K,V> deepCopy() {
+        MyDict<K,V> copy = new SymbolTable<>();
+        for (Map.Entry<K, V> entry_ : this.myDict.entrySet())
+        {
+            //The key is a string => imutable => we don't need to copy it
+            try {
+                copy.add(entry_.getKey(), (V) entry_.getValue().deepCopy());
+            } catch (IdAlreadyExistsException e) {
+                //this should never really occur
+                System.out.println(e);
+            }
+        }
+        return copy;
+    }
+
 }

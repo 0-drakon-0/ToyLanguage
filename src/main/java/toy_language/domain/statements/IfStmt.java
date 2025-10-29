@@ -46,4 +46,7 @@ public class IfStmt implements Stmt{
             throw new MissmatchValueException(new BoolType(), val.getType());
         return state;
     }
+    public Stmt deepCopy() {
+        return new IfStmt(this.exp.deepCopy(), this.thenS.deepCopy(), this.elseS.deepCopy());
+    }
 }
