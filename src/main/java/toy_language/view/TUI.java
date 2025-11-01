@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class TUI {
     private final Map<String, Command> commands;
     private final Scanner keyboard = new Scanner(System.in);
-    private final String flipId = "6";
+    private final String flipId = "7";
 
     public TUI(Controller controller) {
         this.commands = new HashMap<>();
@@ -21,6 +21,7 @@ public class TUI {
         addCommand(new RunOneStepCommand("3", "Run One Step", controller));
         addCommand(new ShowCurrentStateCommand("4", "Show current state", controller));
         addCommand(new ShowOriginalStateCommand("5", "Show Original state", controller));
+        addCommand(new GoToNextStateCommand("6", "Go to next state", controller));
         addCommand(new FlipPrintFlagCommand(flipId, "Flip the print flag", controller));
     }
 

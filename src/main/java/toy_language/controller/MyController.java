@@ -2,6 +2,7 @@ package toy_language.controller;
 
 import toy_language.domain.my_exceptions.ToyLanguageExceptions;
 import toy_language.domain.my_exceptions.EmptyStackException;
+import toy_language.domain.my_exceptions.FinishUnexistentStateException;
 import toy_language.domain.my_exceptions.NoProgramToRunException;
 import toy_language.domain.prg_state.PrgState;
 import toy_language.repository.*;
@@ -27,6 +28,7 @@ public class MyController implements Controller {
             throw new NoProgramToRunException();
         MyStack<Stmt> stk=state.getExeStk();
         if(stk.isEmpty()) 
+            //this.repo.finishCrtState();    
             throw new EmptyStackException();
         Stmt crtStmt = stk.pop();
         return crtStmt.execute(state);
@@ -47,7 +49,14 @@ public class MyController implements Controller {
         if (this.printFlag) {
                 this.displayCurrentState(prg);
             }
+        //this.repo.finishCrtState();
     }
+    //TODo -- we keep this depending on threading part
+    @Override
+    public void goToNextState() throws FinishUnexistentStateException{
+        this.repo.finishCrtState();
+    }
+
     //TODO -- delete? on pdf it's good?
     //return steps as strings
     private void displayCurrentState(PrgState state) {

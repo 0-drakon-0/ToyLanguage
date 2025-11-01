@@ -17,6 +17,7 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/DivisionByZeroException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/EmptyListException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/EmptyStackException.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/FinishUnexistentStateException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdAlreadyExistsException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdNotDefinedException.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/my_exceptions/IdNotFoundException.java
@@ -47,6 +48,7 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/Command.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/ExitCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/FlipPrintFlagCommand.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/GoToNextStateCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/RunAllCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/RunOneStepCommand.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/view/commands/SelectPrgCommand.java

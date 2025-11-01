@@ -1,5 +1,6 @@
 package toy_language.controller;
 
+import toy_language.domain.my_exceptions.FinishUnexistentStateException;
 import toy_language.domain.my_exceptions.NoProgramToRunException;
 import toy_language.domain.my_exceptions.ToyLanguageExceptions;
 import toy_language.domain.prg_state.PrgState;
@@ -13,5 +14,6 @@ public interface Controller {
     public boolean getPrintFlag();
     public void flipPrintFlag();
     public Stmt getOriginalState() throws NoProgramToRunException;
+    public void goToNextState() throws FinishUnexistentStateException;
 }
 
