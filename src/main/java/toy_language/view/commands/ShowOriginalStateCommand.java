@@ -1,6 +1,7 @@
 package toy_language.view.commands;
 
 import toy_language.controller.Controller; 
+import toy_language.domain.my_exceptions.NoProgramToRunException;
 
 public class ShowOriginalStateCommand extends Command {
     private final Controller controller;
@@ -12,7 +13,12 @@ public class ShowOriginalStateCommand extends Command {
 
     @Override
     public void execute() {
-        System.out.println(this.controller.getOriginalState());    
+        try {
+            System.out.println("\n--------Original-State--------");
+            System.out.println(this.controller.getOriginalState());    
+        } catch (NoProgramToRunException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public boolean getPrintFlag() {

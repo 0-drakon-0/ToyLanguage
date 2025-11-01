@@ -23,6 +23,8 @@ public class MyController implements Controller {
 
     @Override
     public PrgState oneStep(PrgState state) throws ToyLanguageExceptions {
+         if (state == null)
+            throw new NoProgramToRunException();
         MyStack<Stmt> stk=state.getExeStk();
         if(stk.isEmpty()) 
             throw new EmptyStackException();
@@ -47,12 +49,17 @@ public class MyController implements Controller {
             }
     }
     //TODO -- delete? on pdf it's good?
+    //return steps as strings
     private void displayCurrentState(PrgState state) {
         System.out.println(state.toString());
     }
+
     @Override
-    public PrgState getCurrentState() {
-        return this.repo.getCrtPrg();
+    public PrgState getCurrentState() throws NoProgramToRunException {
+        PrgState prg = this.repo.getCrtPrg();
+        if (prg == null)
+            throw new NoProgramToRunException();
+        return prg;
     }
     @Override
     public boolean getPrintFlag() {
@@ -66,8 +73,11 @@ public class MyController implements Controller {
             printFlag = true;
     }
     @Override
-    public Stmt getOriginalState() {
-        return this.repo.getOriginalState();
+    public Stmt getOriginalState() throws NoProgramToRunException {
+        PrgState prg = this.repo.getCrtPrg();
+        if (prg == null)
+            throw new NoProgramToRunException();
+        return prg.getOriginal();
     }
 
 }

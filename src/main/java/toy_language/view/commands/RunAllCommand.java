@@ -17,7 +17,7 @@ public class RunAllCommand extends Command {
         try {
             this.controller.allStep();
         } catch (ToyLanguageExceptions e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 

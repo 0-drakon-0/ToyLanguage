@@ -1,6 +1,7 @@
 package toy_language.view.commands;
 
 import toy_language.controller.Controller;
+import toy_language.domain.my_exceptions.NoProgramToRunException;
 import toy_language.domain.prg_state.PrgState;
 
 public class ShowCurrentStateCommand extends Command {
@@ -13,9 +14,12 @@ public class ShowCurrentStateCommand extends Command {
 
     @Override
     public void execute() {
-        PrgState stateD = this.controller.getCurrentState();
-        System.out.println("---------CurrentState---------");
-        System.out.println(stateD.toString());
-        System.out.println("------------------------------");
+        System.out.println("\n---------CurrentState---------");
+        try {
+            PrgState stateD = this.controller.getCurrentState();
+            System.out.println(stateD.toString());
+        } catch (NoProgramToRunException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

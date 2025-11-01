@@ -20,16 +20,15 @@ public class SelectPrgCommand extends Command {
     private final Controller controller;
     private final Scanner keyboard = new Scanner(System.in);
     private final String[] hardcode_options = {
-        "int v; v=2;Print(v)", 
-        "int a;int b; a=2+3*5;b=a+1;Print(b)",
-        "bool a; int v; a=true;(If a Then v=2 Else v=3);Print(v)" 
+        "int v; v=2; NOP; Print(v)", 
+        "int a; int b; a=2+3*5; b=a+1; Print(b)",
+        "bool a; int v; a=true; (If a Then v=2 Else v=3); Print(v)" 
     };
 
         
     public SelectPrgCommand (String key, String description, Controller controller) {
         super(key, description);
         this.controller = controller;
-        
     }
 
     @Override
@@ -64,7 +63,7 @@ public class SelectPrgCommand extends Command {
 
     }
     private void loadOption1() {
-        Stmt ex1= new CompStmt(new VarDeclStmt("v",new IntType()),new CompStmt(new AssignStmt("v",new ValueExp(new IntValue(2))), new PrintStmt(new VarExp("v"))));
+        Stmt ex1= new CompStmt(new VarDeclStmt("v",new IntType()),new CompStmt(new AssignStmt("v",new ValueExp(new IntValue(2))), new CompStmt(new NOP(), new PrintStmt(new VarExp("v")))));
         MyStack<Stmt> exeStk = new ExeStk<>();
         exeStk.push(ex1);
         MyDict<String, Value> symTable = new SymbolTable<>();
@@ -82,7 +81,6 @@ public class SelectPrgCommand extends Command {
             PrgState state = new PrgState(exeStk, symTable, outList, ex2);
             this.controller.addPrgState(state);
         } catch (UnknownOperatorException e) {
-            //TODO -- should show a message to the user
             System.out.println(e.getMessage());
         }
     }

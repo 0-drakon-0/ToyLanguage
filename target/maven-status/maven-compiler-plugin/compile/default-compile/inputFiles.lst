@@ -30,6 +30,7 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/AssignStmt.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/CompStmt.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/IfStmt.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/NOP.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/PrintStmt.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/Stmt.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/statements/VarDeclStmt.java

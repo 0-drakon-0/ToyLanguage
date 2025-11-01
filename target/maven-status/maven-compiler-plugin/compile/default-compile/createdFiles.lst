@@ -1,3 +1,4 @@
 toy_language/domain/my_exceptions/NoProgramToRunException.class
+toy_language/domain/statements/NOP.class
 toy_language/domain/expressions/LogicExp$1.class
 toy_language/domain/expressions/ArithExp$1.class
