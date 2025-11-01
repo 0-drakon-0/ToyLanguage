@@ -39,7 +39,7 @@ public class SymbolTable<K,V extends Value> implements MyDict<K,V> {
         }
     }
     @Override
-    public boolean isDefined(K id) {
+    public boolean isVarDef(K id) {
         return this.myDict.containsKey(id);
     }
     @Override

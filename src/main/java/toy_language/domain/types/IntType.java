@@ -1,7 +1,11 @@
 package toy_language.domain.types;
 
+import toy_language.domain.values.IntValue;
+import toy_language.domain.values.Value;
 
 public class IntType implements Type {
+    private int defaultVal = 0;
+
     @Override
     public boolean equals(Object another) {
         if (another instanceof IntType)
@@ -16,5 +20,9 @@ public class IntType implements Type {
     @Override
     public Type deepCopy() {
         return new IntType();
+    }
+    @Override
+    public Value defaultValue() {
+        return new IntValue(this.defaultVal);
     }
 }

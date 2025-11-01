@@ -8,6 +8,6 @@ public interface MyDict<K, V> {
     public V lookup(K id) throws IdNotFoundException;
     public void update(K id, V val) throws IdNotFoundException;
     public void add(K id, V val) throws IdAlreadyExistsException;
-    public boolean isDefined(K id);
+    public boolean isVarDef(K id);
     public MyDict<K,V> deepCopy();
 }

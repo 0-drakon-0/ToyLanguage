@@ -6,12 +6,11 @@ import toy_language.domain.expressions.Exp;
 import toy_language.domain.prg_state.PrgState;
 import toy_language.domain.adts.dictionary.MyDict;
 import toy_language.domain.types.Type;
-import toy_language.domain.types.NullType;
 
 public class AssignStmt implements Stmt{
     private String id;
     private Exp exp;
-    //TODO see dault value instead of null
+    //TODO see default value instead of null
 
     public AssignStmt(String id, Exp exp) {
         this.id = id;
@@ -24,10 +23,10 @@ public class AssignStmt implements Stmt{
     @Override
     public PrgState execute(PrgState state) throws ToyLanguageExceptions {
         MyDict<String,Value> symTbl= state.getSymTable();
-        if (symTbl.isDefined(this.id)) {
+        if (symTbl.isVarDef(this.id)) {
             Value val = this.exp.eval(symTbl);
             Type typId= (symTbl.lookup(this.id)).getType();
-            if ((val.getType()).equals(typId) || typId.equals(new NullType())) {
+            if ((val.getType()).equals(typId)) {
                 symTbl.update(this.id, val);
             } else {
                 throw new MissmatchValueException(typId, val.getType());

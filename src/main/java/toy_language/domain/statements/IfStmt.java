@@ -6,14 +6,9 @@ import toy_language.domain.my_exceptions.*;
 import toy_language.domain.expressions.Exp;
 import toy_language.domain.prg_state.PrgState;
 
-import java.time.temporal.ValueRange;
-
 import toy_language.domain.adts.dictionary.MyDict;
 import toy_language.domain.adts.stack.MyStack;
-import toy_language.domain.types.Type;
 import toy_language.domain.types.BoolType;
-import toy_language.domain.types.NullType;
-
 
 
 public class IfStmt implements Stmt{
