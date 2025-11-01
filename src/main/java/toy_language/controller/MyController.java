@@ -35,32 +35,29 @@ public class MyController implements Controller {
     }
     
     @Override
-    public void allStep() throws ToyLanguageExceptions {
+    public void allStep(ExecutionObserver observer) throws ToyLanguageExceptions {
         PrgState prg = repo.getCrtPrg();
         if (prg == null)
             throw new NoProgramToRunException();
-        while (!prg.getExeStk().isEmpty()){
-            if (this.printFlag) {
-                this.displayCurrentState(prg);
-                System.out.println("\n==>");
-            }
+        
+        if (this.printFlag) {
+            observer.onExecutionStart(prg);
+        }
+        while (!prg.getExeStk().isEmpty()) {
             oneStep(prg);
+            if (this.printFlag) {
+                observer.onStepExecuted(prg);
+            }
         }
         if (this.printFlag) {
-                this.displayCurrentState(prg);
-            }
+            observer.onExecutionFinish(prg);
+        }
         //this.repo.finishCrtState();
     }
     //TODo -- we keep this depending on threading part
     @Override
     public void goToNextState() throws FinishUnexistentStateException{
         this.repo.finishCrtState();
-    }
-
-    //TODO -- delete? on pdf it's good?
-    //return steps as strings
-    private void displayCurrentState(PrgState state) {
-        System.out.println(state.toString());
     }
 
     @Override

@@ -6,13 +6,6 @@ import toy_language.domain.values.*;
 
 public class ValueExp implements Exp{
     Value val;
-    //TODO -- see if can be removed
-    public ValueExp(IntValue i) {
-        val = i;
-    }
-    public ValueExp(BoolValue b) {
-        val = b;
-    }
     public ValueExp(Value val) {
         this.val = val;
     }

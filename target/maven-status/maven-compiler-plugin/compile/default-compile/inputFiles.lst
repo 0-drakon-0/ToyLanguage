@@ -1,5 +1,6 @@
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/App.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/controller/Controller.java
+/home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/controller/ExecutionObserver.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/controller/MyController.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/dictionary/MyDict.java
 /home/drakon/Faculty/MAP/toy_language/src/main/java/toy_language/domain/adts/dictionary/SymbolTable.java

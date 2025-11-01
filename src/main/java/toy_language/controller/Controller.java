@@ -9,7 +9,7 @@ import toy_language.domain.statements.Stmt;
 public interface Controller {
     public void addPrgState(PrgState state);
     public PrgState oneStep(PrgState state) throws ToyLanguageExceptions;
-    public void allStep() throws ToyLanguageExceptions;
+    public void allStep(ExecutionObserver observer) throws ToyLanguageExceptions;
     public PrgState getCurrentState() throws NoProgramToRunException;
     public boolean getPrintFlag();
     public void flipPrintFlag();

@@ -6,8 +6,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-
-
 public class TUI {
     private final Map<String, Command> commands;
     private final Scanner keyboard = new Scanner(System.in);

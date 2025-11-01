@@ -10,7 +10,6 @@ import toy_language.domain.types.Type;
 public class AssignStmt implements Stmt{
     private String id;
     private Exp exp;
-    //TODO see default value instead of null
 
     public AssignStmt(String id, Exp exp) {
         this.id = id;
